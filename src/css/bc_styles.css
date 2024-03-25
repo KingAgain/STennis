@@ -1,0 +1,74 @@
+.bc{
+    flex: 1;
+    padding: 10px 0px 0px 25px;
+    overflow-y: auto; 
+}
+.button-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.card-continer{
+    margin: 20px 10px 20px 0;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.exTimeHint{
+    margin: 10px;
+    padding: 0.3rem 1rem 0.3rem 1rem;
+    font-size: 1rem;
+    color: #f0f0f0;
+    border-radius: 6px;
+    background-color: rgb(22, 119, 255);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+    height: 2rem;
+}
+.toolButton{
+    height: 2rem;
+    width: 4rem;
+    font-size: 1rem;
+    padding: 0;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+}
+.drawParent{
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 10px 0 0;
+    background-color: #f0f0f0;
+    column-count: 4;
+    display: flex;
+    flex-direction: row;
+}
+.drawRound{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    vertical-align: middle;
+    justify-content:space-evenly;
+    width: 12rem;
+}
+.drawButton{
+    display: block;
+    margin: 10px;
+    align-items:center;
+    height: 2.5rem;
+}
+@media screen and (max-width: 800px) {
+    .toolButton{
+        height: 3rem;
+        width: 6rem;
+        font-size: 1.2rem;
+    }
+    .drawRound {
+      margin:0.5rem;
+      
+    }
+    .drawButton{
+        height: 4rem;
+        width:12rem;
+        font-size: 1.2rem;
+    }
+  }
+  

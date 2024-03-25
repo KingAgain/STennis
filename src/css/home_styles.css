@@ -1,0 +1,19 @@
+  .home-page{
+    display: flex;
+    flex: 1;
+  }
+  .home-logo {
+    max-height: 40px;
+    max-width: 40px;
+    margin-right: 50px;
+  }
+  .layout {
+    flex: 1;
+  }
+  .calendar-selector{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 20px 0 20px 0;
+  }
