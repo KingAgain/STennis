@@ -4,6 +4,11 @@ import {
 } from "react-router-dom";
 import PHome from '../pages/home'
 import PBc from '../pages/bracket_challenge'
+import PBcM from '../pages/bracket_challenge_main'
+import CCAnalytics from '../components/CAnalytics/CAnalytics'
+
+
+
 
 const router = createHashRouter([
   {
@@ -12,6 +17,13 @@ const router = createHashRouter([
     children:[{
       path:"/bc/:bcid",
       element: <PBc />,
+      children:[{
+        index:true,
+        element: <PBcM />,
+      },{
+        path:"/bc/:bcid/analytics",
+        element: <CCAnalytics />,
+      },]
     }]
   },
   {

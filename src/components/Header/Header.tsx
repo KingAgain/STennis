@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,CSSProperties } from 'react'
 import { Button, Dropdown, Layout, MenuProps } from 'antd'
 import { UserOutlined } from '@ant-design/icons';
 import iconImage from '../../../static/icon.png'
@@ -48,7 +48,7 @@ const CHeader: React.FC = () => {
       ),
     },
   ]
-  const headerStyle = {
+  const headerStyle:CSSProperties = {
     display: 'flex',
     alignItems: 'center',
     flex: 1,
