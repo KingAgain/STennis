@@ -1,0 +1,7 @@
+.rank{
+    display: flex;
+    padding: 10px 0px 0px 25px;
+    overflow-y: auto; 
+    flex:1;
+    flex-direction: column;
+}

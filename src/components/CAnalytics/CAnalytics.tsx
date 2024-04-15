@@ -1,9 +1,11 @@
 import React from 'react'
-import { Card,Divider,Table } from "antd";
+import { Card,Divider,Table,Button } from "antd";
 import { ColumnType } from 'antd/lib/table';
+import { useNavigate } from 'react-router-dom'
 import './CAnalytics.css'
 
 const CCAnalytics: React.FC = () => {
+  const navigator = useNavigate()
     type BcAnalytics = {
         [category: string]: {
           [player: string]: number;
@@ -61,10 +63,24 @@ const CCAnalytics: React.FC = () => {
         }
         console.log(Tables)
     // }
+
+    const navigateToParent = () => {
+      const currentHashPath = window.location.hash;
+      const currentPath = currentHashPath.replace(/^#/, '');
+      const segments = currentPath.split('/').filter(segment => segment !== '');
+      const newHashPath = segments.slice(0, -1).join('/');
+      console.log(newHashPath);
+      navigator(newHashPath);
+    };
+    
+
     return (
         <div>
-            <Card className='card-continer'>
-                <h2>预测统计 （共{tot}人作答）</h2>   
+            <Card className='card-container'>
+                <h2 style={{ display: 'inline' }}>预测统计 （共{tot}人作答）</h2>
+                <Button type='link' onClick={navigateToParent}>
+                  返回
+                </Button>
                 <Divider/>
                 <div className='table-container'>
                     {Tables}

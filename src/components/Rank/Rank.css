@@ -1,0 +1,22 @@
+.ant-tag-checkable{
+    background-color: rgba(0,0,0,0.3);
+    margin:5px;
+    margin:  10px 10px 10px 0;
+    padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+    height: 2rem;
+    color:#fff
+}
+.ant-tag-checkable:not(.ant-tag-checkable-checked):hover{
+    background-color: rgba(0,0,0,0.4);
+    color:#fff
+}
+.ant-tag-checkable-checked{
+    background-color: #1677ff;
+}
+.tag-container{
+    
+    margin: 5px;
+}

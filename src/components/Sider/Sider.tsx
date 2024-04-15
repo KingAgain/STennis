@@ -1,5 +1,5 @@
 import React from 'react'
-import { SearchOutlined, HistoryOutlined, CalendarOutlined,PartitionOutlined } from '@ant-design/icons'
+import { PartitionOutlined, HistoryOutlined, SearchOutlined, CrownOutlined, CalendarOutlined } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
 import { Layout, Menu } from 'antd'
 import { useNavigate } from 'react-router-dom'
@@ -7,13 +7,19 @@ import './Sider.css'
 
 const { Sider } = Layout
 const options: {[key:string]: (string | never)[] }= {
+  '世界排名': ['单打世界排名','双打世界排名','单打冠军排名','双打冠军排名','统计数据'],
   '签表挑战': ['2024迈阿密'],
-  '巡回赛历': [],
+  '历史战绩': [],
   'H 2 H': [],
-  '历史战绩': []
+  '巡回赛历': [],
 };
 const sites: {[key:string]: (string | never) } = {
-  '2024迈阿密' : '/bc/1'
+  '2024迈阿密' : '/bc/1',
+  '单打世界排名' : '/rank/syear',
+  '双打世界排名' : '/rank/dyear',
+  '单打冠军排名' : '/rank/srace',
+  '双打冠军排名' : '/rank/drace',
+  '统计数据' : '/rank/stats',
 } 
 const items: MenuProps['items'] = Object.keys(options).map((key, index) => {
   const children = options[key].length > 0 ? 
@@ -24,7 +30,7 @@ const items: MenuProps['items'] = Object.keys(options).map((key, index) => {
   undefined;
   return {
     key,
-    icon: React.createElement([PartitionOutlined, CalendarOutlined, SearchOutlined, HistoryOutlined][index]),
+    icon: React.createElement([  CrownOutlined, PartitionOutlined, HistoryOutlined, SearchOutlined, CalendarOutlined][index]),
     label: key,
     children,
   };

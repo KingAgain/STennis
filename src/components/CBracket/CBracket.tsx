@@ -111,7 +111,7 @@ const CCBracket: React.FC<myProps> = (props: myProps) => {
 
   return (
     <div>
-      <Card className='card-continer'>
+      <Card className='card-container'>
         <div className="button-container">
           {buttonsData.map((label) => (
             <Button

@@ -1,6 +1,6 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
-import { Button, message, Tooltip, Modal, Card } from 'antd'
+import { useState, useEffect, MouseEventHandler } from 'react';
+import { Button, message, Modal, Card } from 'antd'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 
@@ -27,7 +27,7 @@ const CCUserInfo: React.FC<myProps> = (props:myProps) => {
     const sendAnswerToServer = async (data: string) => {
       try {
         console.log(data)
-        const response = await axios.post('http://localhost:3000/api/submitAnswer', data, {
+        const response = await axios.post('http://localhost:8080/submitAnswer', data, {
           headers: {
             'Content-Type': 'application/json'
           }
@@ -53,8 +53,8 @@ const CCUserInfo: React.FC<myProps> = (props:myProps) => {
       }
     };
     const handleSubmit = () => {
-        const answerData: { [key: string]: string[] | string } = {};
-        answerData[`userName`] = localStorage.getItem('userName') as string;
+        const answerData: string[][] = [];
+        
         for (let round = 0; round < props.buttonNames.length; round++) {
           if (props.buttonNames[round].includes('')) {
             messageApi.open({
@@ -63,7 +63,7 @@ const CCUserInfo: React.FC<myProps> = (props:myProps) => {
             });
             return;
           }
-          answerData[`round${round + 1}`] = props.buttonNames[round];
+          answerData.push(props.buttonNames[round]);
     }
     let confirmed = false;
     (async () => {
@@ -71,36 +71,53 @@ const CCUserInfo: React.FC<myProps> = (props:myProps) => {
         title: '一经提交无法更改！确认提交？',
         });
         if (confirmed) {
-        const answerJSON = JSON.stringify(answerData);
-        sendAnswerToServer(answerJSON);
+          const answerJSON = JSON.stringify(answerData);
+          const answerSubmit: { [key: string]: string[][] | string} = {};
+          answerSubmit[`userName`] = localStorage.getItem('userName') as string;
+          answerSubmit[`answer`] = answerData;
+          sendAnswerToServer(answerJSON);
         }
     })()
     }
 
-    const navigateToA = () => {
-    const currentHashPath = window.location.hash;
-    const currentPath = currentHashPath.replace(/^#/, '');
-    const newPath = `${currentPath}/analytics`;
-    console.log(currentPath)
-    navigator(newPath);
-    }
+    const navigateToPath: MouseEventHandler<HTMLElement> = (event) => {
+      event.preventDefault();
+      const path = event.currentTarget.getAttribute('data-path') || '/';
+      const currentHashPath = window.location.hash;
+      const currentPath = currentHashPath.replace(/^#/, '');
+      const newPath = `${currentPath}${path}`;
+      console.log(currentPath);
+      navigator(newPath);
+    };
 
     return(
         <div>
             {contextHolder}
-            <Card className='card-continer'>
-                <Tooltip title={(isLoggedIn ? '' : ' 请先登录 ') + (props.isDisabled ? '已超过提交时间' : '')}>
-                <span>
+            <Card className='card-container'>
+                {!props.isDisabled ?
+                  <span>
                     <Button type="primary" disabled={!isLoggedIn || props.isDisabled} onClick={handleSubmit} className='toolButton' >
-                    提交
+                      {isLoggedIn ? '提交' : '未登录'}
                     </Button>
-                </span>
-                </Tooltip>
-                <span className='exTimeHint'>
-                截止时间 | 2024年3月25日23:00
-                </span>
-                <Button type='link' onClick={navigateToA}>
-                点击查看预测统计
+                    <span className='text-container-primary'> 截止时间 </span>
+                    <span className='text-container-default'> 2024年3月25日23:00 </span>
+                  </span> :
+                  <span>
+                    <span className='text-container-primary'>昵称</span>
+                    <span className='text-container-default'> {localStorage.getItem('userName')}</span>
+                    <span className='text-container-primary'>得分</span>
+                    <span className='text-container-default'> 100</span>
+                    <span className='text-container-primary'>场次</span>
+                    <span className='text-container-default'> 100</span>  
+                    <span className='text-container-primary'>排名</span>
+                    <span className='text-container-default'> 100</span>   
+                    <Button type='link' onClick={navigateToPath} data-path='/rank'>
+                      点击查看排行榜
+                    </Button>                   
+                  </span>
+                }
+                <Button type='link' onClick={navigateToPath} data-path='/analytics'>
+                  点击查看预测统计
                 </Button>
             </Card>
             {modalContextHolder}

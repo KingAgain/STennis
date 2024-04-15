@@ -9,11 +9,11 @@ import CHeader from '../../components/Header/Header'
 const PHome: React.FC = () => {
   return (
     <div className='home-page'>
-      <Layout style={{ flex: 1 }}>
+      <Layout>
         <CHeader />
         <Layout>
           <CSider />
-          <Outlet />
+          <Outlet/>
         </Layout>
       </Layout>
     </div>
