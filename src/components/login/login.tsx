@@ -1,6 +1,6 @@
 import React from 'react'
-import { Form, Input, Button, Checkbox, Modal } from 'antd'
-import { LockOutlined, UserOutlined } from '@ant-design/icons'
+import { Form, Input, Button, Modal } from 'antd'
+import { UserOutlined } from '@ant-design/icons'
 import './login.css'
 import iconImage from '../../../static/icon.png'
 

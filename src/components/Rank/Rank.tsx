@@ -7,6 +7,7 @@ interface myProps {
 }
 const PRank: React.FC<myProps> = (props: myProps) => {
     //获取排名
+    console.log(props.type)
     const rankData:Record<string,string|number>[]=[
         { '本期排名': 1, '上期排名': 1, '排名升降': 0, '昵称': '加油_郑钦文', '国籍': '中国', '总积分': 6602, '起计分': 60, '参赛数量': 28, '冠军总数': 3 },
         { '本期排名': 2, '上期排名': 3, '排名升降': 1, '昵称': 'liujiakun1201', '国籍': '法国', '总积分': 6040, '起计分': 30, '参赛数量': 28, '冠军总数': 4 },
