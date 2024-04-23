@@ -13,7 +13,7 @@ interface myProps {
 }
 const CCBracket: React.FC<myProps> = (props: myProps) => {
   console.log(props)
-  const buttonsData = ['十六强', '1/8区', '2/8区', '3/8区', '4/8区', '5/8区', '6/8区', '7/8区', '8/8区'];
+  const buttonsData = ['八强', '1/8区', '2/8区', '3/8区', '4/8区', '5/8区', '6/8区', '7/8区', '8/8区'];
   const [selectedButton, setSelectedButton] = useState<string | null>(buttonsData[0]);
   const handleZoneButtonClick = (label: string) => {
     setSelectedButton(label);
@@ -76,7 +76,7 @@ const CCBracket: React.FC<myProps> = (props: myProps) => {
               ? () => handleDrawClick(totRound, totRow) : undefined}
             type={props.isDisabled && props.answerStatus[totRound][totRow] == 1
               ? 'primary' : 'default'}
-            icon={props.answerStatus[totRound][totRow] == -1 && props.correctAnswer[totRound][totRow] != ''
+            icon={props.isDisabled && props.answerStatus[totRound][totRow] == -1 && props.correctAnswer[totRound][totRow] != ''
               ? <span style={{ position: 'absolute', top: '-1rem', right: 0 }}>
                 <Tag color="#108ee9">{props.correctAnswer[totRound][totRow]}</Tag>
               </span>

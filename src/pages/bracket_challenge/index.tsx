@@ -7,7 +7,7 @@ const PBc: React.FC = () => {
   return (
     <div className='bc'>
       <Card className='card-container'>
-        <h1>PK赛迈阿密签表挑战</h1>
+        <h1>PK赛马德里签表挑战</h1>
       </Card>
       <Outlet />
     </div>

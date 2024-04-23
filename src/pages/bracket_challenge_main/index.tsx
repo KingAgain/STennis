@@ -5,8 +5,8 @@ import CCBracket from '../../components/CBracket/CBracket'
 
 const PBcM: React.FC = () => {
 
-  const [status, setStatus] = useState(new Date() >= (new Date('2024-03-25T23:00:00+08:00')));
-  const disableTime = new Date('2024-03-25T23:00:00+08:00')
+  const [status, setStatus] = useState(new Date() >= (new Date('2024-04-24T17:00:00+08:00')));
+  const disableTime = new Date('2024-04-24T17:00:00+08:00')
   useEffect(() => {
       const timer = setInterval(() => {
         const currentTime = new Date();
@@ -19,9 +19,27 @@ const PBcM: React.FC = () => {
       return () => clearInterval(timer);
     });
   //get the initial draw from the server(TBD)
-  const drawSize = 16;
-  const initialNames = [[''], [], [], [], []];
-  initialNames[0] = ['[26]似水流年', '特别大兔子', '[20]空白格', '[Q]里奥在普鲁托', '三木四水', '[23]大嘴丽丽', '[19]大kk', '[6]你是我的小馨蕴', '[28]爱阳86', '[Q]苍风一目连', '[17]安德莱斯库', '[25]花滑女王水痘', '[7]日海岸', '萤散野风秋', '数字南', '[WC]香菜烧红鱼'];
+  const drawSize = 128;
+  const initialNames = [['']];
+  for(let i = 1; i < drawSize; i*=2){ 
+    initialNames.push([]);
+  }
+  initialNames[0] = ['【1】加油_郑钦文', 'BYE', 'ABCXYZ666', '韶华纸上停', '沙漠奈亚', '老张小邪', 'BYE', '【27】莎拉科维奇',
+                    '【23】公言锡爵', 'BYE', '大轰趴', 'long95428', '自由人单丹娜', 'Q', 'BYE', '【16】小小de爱钊',
+                    '【11】发黄地瓜', 'BYE', 'Q', '繁华荏苒日', '大漠孤烟11111', '三木四水', 'BYE', '【19】薄荷味大叔',
+                    '【28】空白格', 'BYE', 'WillKris锴', 'HANTIANES', '网坛安陵容', 'Q', 'BYE', '【5】你是我的小馨蕴',
+                    '【3】波斯科维奇', 'BYE', '5默大叔', 'TNT喵喵', 'Q', '爱煮饭的老猫', 'BYE', '【31】蕴外镜',
+                    '【18】大kk', 'BYE', '卢浮宫的色彩', '阴婷', '砂伯洼螺夫', 'Q', 'BYE', '【15】泰勒·弗里茨',
+                    '【9】只想睡觉ing', 'BYE', 'Q', 'hantuchuwa', '南北南南i', '还是洋葱', 'BYE', '【17】瓷娃娃iiii',
+                    '【32】钮钴禄氏淑女薛定谔', 'BYE', 'Alisa大主人', '像个疯子', '雅兰的诱惑', '清雲渡℃', 'BYE', '【8】黑白大山',
+                    '【6】科贝尔金满贯', 'BYE', '数字南', '葱姜蒜瓣sky', 'lluuyyee', 'a18373129208', 'BYE', '【30】爱阳86',
+                    '【20】安室特美惠', 'BYE', 'Q', 'Q', '萤散野风秋', '我爱渣渣1', 'BYE', '【10】1小阿哥',
+                    '【14】安德莱斯库', 'BYE', '好人饿饿', '陵容安渡', 'Q', '小黑黑先生', 'BYE', '【24】似水流年',
+                    '【25】雨子成说', 'BYE', '里奥在普鲁托', 'xyand小宇123', '原天柿', 'Q', 'BYE', '【4】苏三该走了呀呀',
+                    '【7】日海岸', 'BYE', '【WC】人文的小强', '【WC】斯特鲁姆', '萧因法', '风花雪月之强者', 'BYE', '【29】夏日乐悠悠nice',
+                    '【21】ED小童鞋', 'BYE', '大嘴丽丽', '我们都爱鸡米花', 'Change琛子', '【WC】huskxjkb', 'BYE', '【12】莱巴金娜的老公',
+                    '【13】顾影自怜475', 'BYE', '芍药居街花', 'Q', '张文静之歌', 'Q', 'BYE', '【22】花滑女王水痘',
+                    '【26】披头散发13', 'BYE', '很老的新人', '御剑十天', '苍风一目连', '蔑夭天后', 'BYE', '【2】liujiakun1201',];
   for (let colSize = drawSize / 2, round = 1; colSize >= 1; colSize /= 2, round++) {
     for (let col = 0; col < colSize; col++) {
       initialNames[round].push('');

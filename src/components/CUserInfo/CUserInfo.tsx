@@ -100,7 +100,7 @@ const CCUserInfo: React.FC<myProps> = (props:myProps) => {
                       {isLoggedIn ? '提交' : '未登录'}
                     </Button>
                     <span className='text-container-primary'> 截止时间 </span>
-                    <span className='text-container-default'> 2024年3月25日23:00 </span>
+                    <span className='text-container-default'> 2024年4月23日17:00 </span>
                   </span> :
                   <span>
                     <span className='text-container-primary'>昵称</span>

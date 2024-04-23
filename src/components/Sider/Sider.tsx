@@ -8,13 +8,13 @@ import './Sider.css'
 const { Sider } = Layout
 const options: {[key:string]: (string | never)[] }= {
   '世界排名': ['单打世界排名','双打世界排名','单打冠军排名','双打冠军排名','统计数据'],
-  '签表挑战': ['2024迈阿密'],
+  '签表挑战': ['2024马德里'],
   '历史战绩': [],
   'H 2 H': [],
   '巡回赛历': [],
 };
 const sites: {[key:string]: (string | never) } = {
-  '2024迈阿密' : '/bc/1',
+  '2024马德里' : '/bc/1',
   '单打世界排名' : '/rank/syear',
   '双打世界排名' : '/rank/dyear',
   '单打冠军排名' : '/rank/srace',
